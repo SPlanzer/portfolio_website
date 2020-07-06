@@ -1,0 +1,31 @@
+baseURL = "https://simonplanzer.com/"
+languageCode = "en-us"
+title = "The Bone Yard"
+theme = "good-bones"
+
+[params]
+    # Short subtitle/tagline. This is displayed in the header.
+    themecolor = "#hexcolor" # Defines the tab color in Chrome for Android.
+    name = "Simon Planzer"
+    banner = "images/bg.png"
+    mainSections = ["articles"]
+
+
+
+[menu]
+[[menu.main]]
+				name = "About Me"
+				identifier = "About"
+				URL = "/pages/About"
+				weight =1
+[[menu.main]]
+				name = "Articles"
+				identifier = "Articles"
+				URL = "/articles"
+				weight =2
+[[menu.main]]
+				name = "Photo Gallery"
+				identifier = "Photos"
+				URL = "/pages/photos"
+				weight =5
+

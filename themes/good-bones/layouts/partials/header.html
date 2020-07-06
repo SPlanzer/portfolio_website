@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="{{ with .Site.LanguageCode }}{{ . }}{{ else }}en-US{{ end }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport"    content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author"      content="Sergey Pozhilov (GetTemplate.com)">
+
+  <title>{{ .Title }}</title>
+
+
+  <!-- Bootstrap -->
+  <link href="https://netdna.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.no-icons.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="{{ .Site.BaseURL }}css/bootstrap.min.css"/>
+<!--   <link rel="stylesheet" href="{{ .Site.BaseURL }}css/font-awesome.min.css" />
+ -->  
+  <link rel="stylesheet" href="{{ .Site.BaseURL }}css/main.css"/>
+
+  <link rel="stylesheet" href="{{ .Site.BaseURL }}css/github.css"/>
+
+  <link rel="stylesheet" href="{{ .Site.BaseURL }}css/color-theme.css"/>
+
+
+<!--   <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400" type="text/css">
+ -->  <link rel="shortcut icon" href="{{ .Site.BaseURL }}images/favicon.ico" />
+
+  {{ range .Site.Params.customCSS }}
+    <link rel="stylesheet" href="{{ (print "css/" . ) | absURL }}">
+
+  {{ end }}
+    <!-- Custom styles -->
+  <link rel="stylesheet" href="{{ .Site.BaseURL }}css/styles.css"/>
+
+
+</head>
+
+<header id="header">
+  <div id="head" class="parallax" parallax-speed="2">
+           <div class="banner" style="background-image:url({{ .Site.BaseURL }}{{ .Site.Params.banner }});" >
+           <h1 id="logo" class="text-center">
+              <img class="img-circle" src="{{ .Site.BaseURL }}{{ .Site.Params.avatar }}" alt="">
+              <span class="title">{{ .Site.Params.name }}</span>
+              <span class="tagline">{{ .Site.Params.description }}<br>
+                 <a href="mailto:{{ .Site.Params.email }}">{{ .Site.Params.email }}</a>
+              </span>
+           </h1>
+        </div>
+
+{{ partial "menu.html" . }}
+
+
+</header>
+
+<main class="container">

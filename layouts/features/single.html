@@ -1,0 +1,33 @@
+{{ partial "header.html" . }}
+{{ $baseurl := .Site.BaseURL }}
+{{ $data := index .Site.Data .Site.Language.Lang }}
+<article>
+    <header class="article-title">
+    <h1 class="text-primary">{{ .Title }}</h1>
+  </header>
+  <div class="delimiter"></div>
+  <section>
+    {{ .Content }}
+  </section>
+  <div class="clearfix">
+  {{ range .Site.Data.features.features }}
+      <div class="delimiter"></div>
+      <section class="author-info row">
+        <div class="author-avatar col-md-2">
+          {{ with .img }}
+            <img alt="Author Avatar" src="{{ . }}" />
+          {{ end }}
+        </div>
+        <div class="author-meta col-md-10">
+          {{ with .name }}
+            <h2 class="author-name text-primary">{{ . }}</h2>
+          {{ end }}
+          {{ with .bio }}
+            <div class="author-bio">{{ . }}</div>
+          {{ end }}
+        </div>
+      </section>
+    {{ end }}
+</article>
+<div class="delimiter"></div>
+{{ partial "footer.html" . }}

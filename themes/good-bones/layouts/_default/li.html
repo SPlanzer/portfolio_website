@@ -1,0 +1,46 @@
+<!-- todo//move to css-->
+<head>
+<style>
+a.one:link {color:#484c4f;}
+a.one:visited {color:#484c4f;}
+a.one:hover {color:#484c4f;}
+</style>
+</head>
+
+
+<article>
+  <div class="li-content">
+    {{ if (isset .Params "images") }}
+      <a href="{{ .Permalink }}">
+        <img class="embedded-image" src="{{ index .Params.images 0 | absLangURL }}"/>
+      </a>
+    {{ end }}
+  </div>
+  <header>
+    <h3 class="li-h3"><a class="one" href="{{ .Permalink }}">{{ .Title }}</a></h3>
+    <div class="clearfix">
+      <div class="post-date pull-left">
+        <span class="li-small">
+          {{ i18n "postedOn" }}
+          {{ .Date.Format ( i18n "dateTimeFormat" ) }}
+        </span>
+      </div>
+    </div>
+  </header>
+  {{ if (isset .Params "summary") }}
+    <div class="li-content">
+      <div class="summary-container">
+        <p>{{ markdownify .Params.Summary }}</p>
+        <a class="btn btn-primary" href="{{ .Permalink }}">
+          {{ i18n "readMore" }} <span aria-hidden="true">&rarr;</span>
+        </a>
+      </div>
+
+    </div>
+  {{ else }}
+    <div>
+        NOT FOUND
+      {{ .Summary }}
+    </div>
+  {{ end }}
+</article>
