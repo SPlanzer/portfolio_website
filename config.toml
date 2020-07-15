@@ -1,6 +1,6 @@
 baseURL = "https://simonplanzer.com/"
 languageCode = "en-us"
-title = "The Bone Yard"
+title = "Simon Planzer
 theme = "good-bones"
 
 [params]
@@ -14,7 +14,7 @@ theme = "good-bones"
 
 [menu]
 [[menu.main]]
-				name = "About Me"
+				name = "About"
 				identifier = "About"
 				URL = "/pages/About"
 				weight =1

@@ -1,12 +1,20 @@
 ---
-title: "Welcome to the Bone Yard"
+title: "About"
 date: 2020-05-01T15:53:17+12:00
 draft: false
 noshowdate: true
 ---
 
-The Bone Yard is a gentrification, reinvigoration, beautification, regeneration, skin care, nature conservation project and bottle recycling drop off depot.
+![Example image](/images/about.png)
 
-This now beautiful spot once lay in waste. However in 1935 during the Great Depression, the government sent a team of relief workers to start work on the Bone Yard. At first a team of just five men worked with pickaxes to carve away at the rock. Over the years the numbers grew, with the workers living in a large camp nearby. The project was delayed by World War II, and then again in 1945 by a large avalanche. The men worked in very tough conditions and died in their hundreds by landslide and rockblast.
 
-No longer does Newtown ring out with their songs nor their fights but they have left behind this land mark that people travel this here globe to pay visit.
+**Over "lockdown" I set myself the goal to learn to build and deploy a website for two reasons:**
+1. **To learn how to build and share websites.**
+
+2. **To have a platform to catpture what I am learning in my own time. As well has building a knowledge base for myself and sharing my knowledge with others, I have found this website to also be a good motivation to continue to explore the topics I am interested in.**
+
+
+**Currently my interests are in extracting information from imagery and LiDAR. In the articles of this website I will be outlining the techniques I am learning to do just that.**
+
+**If you would like to discuss the content of this website please get in touch art simon.planzer@gmail.com**
+

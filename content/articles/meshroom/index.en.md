@@ -7,22 +7,53 @@ author = ""
 images = ["articles/meshroom/banner.png"]
 +++
 
+{{< imgScale "pouring.png" "Construction of the Newtown Community Skatepark that is to be surveyed using photogrammetry techniques" "500x" >}}
+## Intro
+This is an investigation into using Meshroom for building a Digitial Surface Model of the Newtown Community skate park. This was undertaken to help plan the future extentions to the facility and better liase with City Council.
+
+
+## Meshroom
+Meshroom is an opensource photogrammetry project by...
+
+The software finds common clusters of pixels known as "features" in multiple images. It then uses these common clusters and the images metadata to calculate the position and angle of the camera when each image was captured. Once the camera values are calculated, point clouds, meshes and textures can them be generated.
+TODO add detail from - https://alicevision.org/#photogrammetry/sfm
+
+## Capturing the images
+For this project a DJI Phanton3 drone was deployed
+
+When taking pictures for photogramtry there are several factors that must be followed to ensure a good model is produces:
+* Full coverage of all terrain must be captured from all angles
+* All terrain must be captured in at least two images. Therefore each image should overlap by about 60-80% the succeeding image.
+* Do not capture moving objects in the images such as people or drone cases that may be picked up and moved during the survey
+* Avoid shadows. This is best done by collecting imagery on a lightly overcast day.
+* Avoid harsh light. The day the imagery was flown for this project much of the terrain was wet. This meant even with the diffussed light provided by the cloud cover much of the terrain gave of glare that reduces the information the camera can capture due to over exposure.
+
+For the reason outlined in the last point. This survey only captured the western quarter of the community saktepark and more surveys will be required in more optimal conditions to capture the remained proportion of the facility.
 
 
 
 
-{{< imgScale "images.png" "the images used to build the model" "1000x" >}}
 
 
-{{< imgScale "cameras.png" "The camera positions and there angles as calculated by meshroom" "1000x" >}}
+
+{{< imgScale "images.png" "The above shows Meshroom with all the images used to build the model" "1000x" >}}
 
 
+{{< imgScale "cameras.png" "The camera positions and their angles as calculated by meshroom" "1000x" >}}
+
+
+## Running Meshroom
+To build the surface model Meshroom requires access to a NVIDIA CUDA GPU. In my case I do not have access to a machine with this GPU. But fortuantly Meshroom has a command line input and the application can therefore be run using cloud computing resources that make the required GPU available.
+
+In this case I used Google Colab as the cloud computing resource provides free access to a GPU for up to 12 hours.
+
+Below is the Google Colab script for mounting data installed in Google Drive, installing Meshroom to Google Colab and running Meshroom itself.
 
 ```
 
 # Variables
-inputFolderDrive = "/content/drive/My\ Drive/sfm/ghetto_v2" # G Drive mount point/ folder with the input images
-outputFolderDrive = "/content/drive/My\ Drive/sfm/ghetto_v2/output" # G Drive mount point/ folder for the outcome
+inputFolderDrive = "/content/drive/My\ Drive/sfm/NewtownCommunitySkatepark" # G Drive mount point/ folder with the input images
+outputFolderDrive = "/content/drive/My\ Drive/sfm/NewtownCommunitySkatepark/output" # G Drive mount point/ folder for the outcome
 workingDir = "/content/currentProject" #notebook folder to work in
 meshroomRoot = workingDir + "/meshroom"
 filesInput = workingDir + "/input"
@@ -69,6 +100,13 @@ meshroomRun = meshroomRoot+"/meshroom_photogrammetry"
 %rm -Rv $filesOutput
 ```
 
+# The Output
+
+TODO
+* Mention there outputs. Point cloud, mesh and texture.
+* Mention meshlab
+* Mention the ability to measure.
+
 
 {{< imgScale "overview.png" "The camera positions and there angles as calculated by meshroom" "1000x" >}}
 
@@ -78,3 +116,7 @@ meshroomRun = meshroomRoot+"/meshroom_photogrammetry"
 
 {{< imgScale "curb.png" "The camera positions and there angles as calculated by meshroom" "1000x" >}}
 
+# Next Steps
+The next step for this project is to capture the remaineder of the park when optimal lighting conditions allow.
+
+I also have access a u-blox GNSS reciever. A low cost receiver capable of centermeter accuracy. Once the entire facility is captured by point cloud, reference points will be surveyed using this reciever. This will allow the model to be tied to spatial reference system. Once this is the case it can be tied into other course DSM that exist to give further context and spatial analysis can also be performed on the model.
