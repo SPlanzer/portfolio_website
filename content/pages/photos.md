@@ -7,7 +7,12 @@ noshowdate: true
 
 ### Gravity Surveys
 {{< load-photoswipe >}}
-{{< gallery dir="photos/vdi" />}}`
+{{< gallery dir="photos/vdi" />}}
+
+### 35mm Film
+{{< load-photoswipe >}}
+{{< gallery dir="photos/bw" />}}
+
 ### Iran
 {{< load-photoswipe >}}
-{{< gallery dir="photos/iran" />}}`
+{{< gallery dir="photos/iran" />}}
