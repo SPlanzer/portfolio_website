@@ -5,8 +5,7 @@ draft: false
 noshowdate: true
 ---
 
-![about](about.png)
-![about](/pages/about.png)
+![about](/about.png)
 
 
 **Over "lockdown" I set myself the goal to learn to build and deploy a website for two reasons:**
