@@ -7,7 +7,7 @@ author = ""
 images = ["articles/meshroom/banner.png"]
 +++
 
-{{< imgScale "pouring.png" "Construction of the Newtown Community Skatepark that is to be surveyed using photogrammetry techniques" "500x" >}}
+
 ## Intro
 This is an investigation into using Meshroom for building a Digitial Surface Model of the Newtown Community skate park. This was undertaken to help plan the future extentions to the facility and better liase with City Council.
 
