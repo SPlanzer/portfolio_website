@@ -5,10 +5,11 @@ draft: false
 noshowdate: true
 ---
 
-![Example image](/images/about.png)
+![about](/images/about.png)
 
 
 **Over "lockdown" I set myself the goal to learn to build and deploy a website for two reasons:**
+
 1. **To learn how to build and share websites.**
 
 2. **To have a platform to catpture what I am learning in my own time. As well has building a knowledge base for myself and sharing my knowledge with others, I have found this website to also be a good motivation to continue to explore the topics I am interested in.**
