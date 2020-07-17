@@ -5,8 +5,8 @@ draft: false
 noshowdate: true
 ---
 
-![about](about.png)
-![about](/about.png)
+![about](pages/about.png)
+![about](/pages/about.png)
 ![about](images/about.png)
 ![about](/images/about.png)
 ![about](static/images/about.png)
