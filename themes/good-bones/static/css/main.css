@@ -110,6 +110,8 @@ main {
 
 .article-title h1 {
     font-size: 44px;
+    color: black;
+
 }
 
 .article-title * {
