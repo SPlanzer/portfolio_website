@@ -2,7 +2,7 @@
 title = "Predicting nearshore bathymetry using Sentinel–2 imagery"
 summary = "An investigation into the effectiveness of Satellite Derived Bathymetry (SDB)"
 
-date = "2020-04-09T21:34:30+02:00"
+date = "2020-04-14T21:34:30+02:00"
 tags = ["Remote Sensing", "SDB", "Satellite Derived Bathymetry"]
 author = ""
 images = ["articles/satellite-derived-bathymetry/banner.png"]

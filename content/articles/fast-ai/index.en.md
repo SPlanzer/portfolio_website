@@ -1,7 +1,7 @@
 +++
 title = "Using FastAI to extract geographic feature from imagery"
 summary = "Not yet released.... please check back soon"
-date = "2020-04-09T21:34:30+02:00"
+date = "2020-06-12T22:12:12+03:00"
 tags = ["Feature Extraction", "AI"]
 author = ""
 images = ["articles/body-found/bg.png"]

@@ -1,7 +1,7 @@
 +++
 title = "Canopy Height Model (CHM) from LiDAR"
 summary = "Extraxcting tree hieght from LiDAR is straight forward reliable. This is a useful way to distignish between vegetation types such as forest and scrub"
-date = "2020-04-09T21:34:30+02:00"
+date = "2020-05-07T22:12:12+03:00"
 tags = ["LiDAR"]
 author = ""
 images = ["articles/body-found/bg.png"]
