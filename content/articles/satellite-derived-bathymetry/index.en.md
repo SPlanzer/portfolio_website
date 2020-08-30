@@ -8,9 +8,6 @@ author = ""
 images = ["articles/satellite-derived-bathymetry/banner.png"]
 +++
 
-# TODO//
-Fix figures
-
 
 **1. Introduction**
 
@@ -77,14 +74,19 @@ The algorithm was developed by Stumpf et al. (2003) and is based on the principl
 
 **2.3.3. Calibrating SDB algorithm values to depths**
 
-QGIS was used to apply the Stumpf et al. (2003) log ratio formula to every water pixel within the study area for the Sentinel-2A L1C and L2A corrected scenes (Figure 3 shows a subset of the SDB algorithm values mapped in pseudo-colour) Once the SDB algorithm values were calculated for all water pixels, a mathematical correlation between these values and the in-situ multibeam depth measurements needed to be found. To do this, within the calibration area, 10 percent of the pixels with SDB algorithm values associated were randomly selected along with the multibeam depth measurements that were spatially associated to these pixels (Figure 2 indicates the distribution of these calibration measurements). The SDB algorithm values and associated multibeam depth measurements were then imported to a database and by aggregating all unique multibeam depth values along with the SDB algorithm values, the average SDB algorithm value was found for each distinct depth (as measured to two decimal places) within the calibration area for both the L1C and L2A image.
+QGIS was used to apply the Stumpf et al. (2003) log ratio formula to every water pixel within the study area for the Sentinel-2A L1C and L2A corrected scenes (Figure 3 shows a subset of the SDB algorithm values mapped in pseudo-colour) Once the SDB algorithm values were calculated for all water pixels, a mathematical correlation between these values and the in-situ multibeam depth measurements needed to be found. To do this, within the calibration area, 10 percent of the pixels with SDB algorithm values associated were randomly selected along with the multibeam depth measurements that were spatially associated to these pixels (Figure 4 indicates the distribution of these calibration measurements). The SDB algorithm values and associated multibeam depth measurements were then imported to a database and by aggregating all unique multibeam depth values along with the SDB algorithm values, the average SDB algorithm value was found for each distinct depth (as measured to two decimal places) within the calibration area for both the L1C and L2A image.
 
-{{< imgScale "figure_3.png" " " "1000x" >}}
+{{< imgScale "figure_3.png" "Figure 3. Image A) is a pseudo-colour image of the SDB algorithm values. The physical seafloor feature seen in image B) can be clearly seen in the SDB algorithm values. Image C) is a profile of the multibeam data of a seafloor feature that is seen in image A) and B)." "1000x" >}}
+
+
+{{< imgScale "figure_4.png" "Figure 4. 10 percent of water pixels and multibeam measurements associated by spatial extent were selected at random within the studies calibration area. The SDB model failed to predict depths for 0-2.15m using the calibration data. This table shows that only 6 pixels and the 14259 measurements within their extent were used to calibrate the SDB for these depths. This also indicates the average density of the multibeam point measurements of ~900 point measurements for each 10x10m Sentinel pixel." "1000x" >}}
+
+
 
 
 The resulting average SDB algorithm values for each depth were then plotted via scatter plot to investigate if a mathematical correlation existed (see figure 5). From each scatter plot, the extinction depth, that depth at which light from the most attenuated band is not returned and the correlation breaks down, can be determined. In the study area, this showed that depths were still predicted by SDB at the study's maximum depths. It however also indicated there was no correlation between the SDB algorithm values and measured depths for 0 to 2.15m of water. Reviewing figure 2, it is clear this is due to a lack of calibration data for this depth interval. As a result, for this study SDB depths could not be generated for depths above 2.15m. As the study is focused on the nearshore, the study’s upper-bounds were limited to 18m.
 
-{{< imgScale "figure_3.png" " " "1000x" >}}
+{{< imgScale "figure_5.png" "Figure 5. Image L1C/L2A - A) shows SDB failed to predict depths below 2.15m. L1C/L2A - B) fitting a polynomial coefficient curve to depths 2.15-18m the majority of depths are predicted well except those under 4.5m. C/B) shows by applying the individual regressions to the two depth intervals the prediction is much more accurate for shallower depths. Note, the L2A regression show depths increasing with decreasing SDB values while the opposite is true for the L1C image. This indicates that by applying atmospheric corrections the ratio as to which band was attenuated higher by water was reversed." "1000x" >}}
 
 
 An order 2 polynomial regression coefficient and a coefficient of determination (R²) was calculated for depths between 2.15-18m. It was however found that by dividing the data into 2.15-4m and 4-18m ranges, two regression coefficients (one for each depth interval) fit the data better and more accurately predicted depth from the SDB algorithm values. Using the SDB algorithm values, the appropriate polynomial regression coefficients were applied to every water pixel for the two images (L1C and L2A) to derive depths from the SDB algorithm values.
@@ -99,8 +101,9 @@ Error was calculated for each Seintinel-2 pixel that the SDB depths were attache
 
 Figure 6 shows the SDB errors aggregated by 2 metre depth intervals. For the L1C corrected image, SDB predicted depths accurately for depths 2.15-4 metres with a mean error of -0.189, where negative values indicate SDB over-estimated depth. Depths in the ranges of 8-10m and 10-12m were most poorly predicted by SDB with a mean error of –2.89 and -2.67 (see figure 7). It was initially expected that this would be correlated to a smaller subset of calibration measurements, however figure 3 shows this is not the case. It is therefore proposed the poorer performance for these depth ranges is due to varying bottom types not captured in the calibration data.
 
-{{< imgScale "figure_3.png" " " "1000x" >}}
+{{< imgScale "figure_6.png" "Figure 6. Boxplots of error for L1C and L2A corrected imagery for the calibration and extrapolation area. A) depths of 2.15-4m were predicted with high accuracy with a mean error of -0.189m. SDB predicted depths poorest for water in the ranges of 8-10m and 10-12m. It was expected that this would be correlated to a smaller subset of calibration points, however figure 3 shows this is not the case. B) L2A corrections improved overall SDB accuracy but introduced nexplained severe error to the 2.15-4m depth interval. C) & D) When the regression coefficients derived from the calibration area were applied to the remainder of the study area, the ability of SDB to predict depth declined. Figure 7 & 8 provide finer detail of mean error and comparison between the L1C & L2A SDB as well as the calibration and extrapolation areas." "1000x" >}}
 
+{{< imgScale "figure_7.png" "Figure 7. Mean error for water depth ranges for the L1C and L2A corrected scenes as well as the difference in error between the L1C and l2A derived SDB depths. Positive numbers show an improvement when L2A corrections were applied" "1000x" >}}
 
 Overall the mean error for the L1C image was –1.667m, and -1.268 for the L2A image. However, the overall mean error for L2A is largely skewed as the L2A correction introduced significant error to depths of 2.15-4m. This introduction of error by using the L2A corrected image is not understood and would require more research to draw conclusions. Overall the atmospheric corrections by ACOLLITE improved SDB depth prediction.
 
@@ -108,7 +111,7 @@ Overall the mean error for the L1C image was –1.667m, and -1.268 for the L2A i
 
 By using the polynomial regression coefficients generated in the calibration area and applying them to the rest of the study area, SDB depth predictions became less accurate. As figure 8 shows, L1C SDB depths outside of the calibration area are 0.63m less accurate and the L2A SDB generated depths are 0.497m less accurate when extrapolated.
 
-{{< imgScale "figure_3.png" " " "1000x" >}}
+{{< imgScale "figure_8.png" "Figure 8. Difference in error between the SDB depths created for the calibration area and extrapolation area for 2m water depth intervals. Negative numbers indicate the accuracy of SDB declined when extrapolated from the calibration area to the rest of the scene." "1000x" >}}
 
 
 **3.3. Discussion**

@@ -4,7 +4,7 @@ summary = "Not yet released.... please check back soon"
 date = "2020-06-12T22:12:12+03:00"
 tags = ["Feature Extraction", "AI"]
 author = ""
-images = ["articles/body-found/bg.png"]
+images = ["articles/fast-ai/banner.png"]
 +++
 
 
