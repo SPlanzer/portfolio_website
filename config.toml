@@ -24,7 +24,7 @@ theme = "good-bones"
 				URL = "/articles"
 				weight =2
 [[menu.main]]
-				name = "Photo Gallery"
+				name = "Photography"
 				identifier = "Photos"
 				URL = "/pages/photos"
 				weight =5

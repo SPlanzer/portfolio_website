@@ -1,6 +1,6 @@
 +++
 title = "Photogrammetry with Meshroom"
-summary = "This article explores building a Digital Surface Model (DSM) from drone photos at the Newtown DIY Skatepark"
+summary = "This article explores building a Digital Surface Model (DSM) from UAV imagery at the Newtown DIY Skatepark"
 date = "2020-05-09T21:34:30+02:00"
 tags = ["Photogrammetry", "Structure From Motion", "SFM"]
 author = ""
