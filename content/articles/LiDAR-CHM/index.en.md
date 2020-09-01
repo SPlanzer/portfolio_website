@@ -149,7 +149,7 @@ Once the pipelines are defined in json it is simple as running the below command
 ## Calculating the CHM
 Once we have the two models, GDAL can be used to run a raster calculator to output the CHM.
 
-```gdal_calc.py -A dtm.tif -B dsm.tif --calc="B-A" --outfile chm.tif –overwrite```
+`gdal_calc.py -A dtm.tif -B dsm.tif --calc="B-A" --outfile chm.tif –overwrite`
 
 
 ## Visualising the CHM model via Python and matplotlib
