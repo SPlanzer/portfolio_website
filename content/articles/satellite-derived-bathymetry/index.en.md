@@ -38,7 +38,7 @@ Multibeam echosounder (multibeam) is currently the most accurate method for meas
 
 The multibeam data was captured in 2010 as part of the Oceans 2020 project. Multibeam data should be captured as close as possible to the satellite image acquisition date to ensure that the nature of the seafloor has not change between the period the multibeam survey and the satellite imagery was collected. This is especially important in dynamic regions. To be sure that the multibeam’s acquisition age was suitable for comparison to Sentinel-2 products (not operational until June 2015) the multibeam data was compared to a marine LiDAR derived surface from 2013 and the seafloor was deemed to be stable (see Figure 2). The LiDAR was not used for calibration and assessment as it was of a relatively small area and incomplete.
 
-{{< imgScale "figure_2.png" "Figure 2. Marine LiDAR depths from 2013 (red) and multibeam from 2010 (black). This was plotted to understand if the seafloor bottom was stable enough to allow the use of 2010 multibeam data to calibrate Sentinel-2 imagery from after Sentinel-2 going operational in 2015. The length of the profile was limited by multibeam and LiDAR overlap." "1000x" >}}
+{{< imgScale "figure_2.png" "Figure 2. Marine LiDAR depths from 2013 (red) and multibeam from 2010 (black). This was plotted to understand if the seafloor bottom was stable enough to allow the use of 2010 multibeam data to calibrate Sentinel-2 imagery from after Sentinel-2 going operational in 2015. The length and location of the profile was limited by multibeam and LiDAR overlap." "1000x" >}}
 
 
 **2.2.2 Satellite Imagery**
