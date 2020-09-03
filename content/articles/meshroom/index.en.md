@@ -20,6 +20,7 @@ Meshroom is an opensource photogrammetry project. The Meshroom software uses Pho
 For this project a DJI Phanton3 drone was deployed.
 
 When taking pictures for photogrammetry there are several factors that must be considered to ensure a good model is produced:
+
 * All terrain in the survey area must be captured in at least two images and each image should overlap the succeeding image by 60-80%.
 * Moving objects such as people or objects that may be picked up and moved during the survey must be avoid as this will result in images not being matched.
 * Avoid shadows as they reduce the information captured by the camera. This is best done by collecting imagery on a lightly overcast day.
@@ -100,6 +101,7 @@ MeshroomRun = MeshroomRoot+"/Meshroom_photogrammetry"
 # The Output
 
 Meshroom generates the below outputs:
+
 * 3d point cloud
 * The 'Mesh'. This is a tetrahedralization of the model
 * The 'texture' that sees the original photos sliced so that the can be draped over the tetrahedral mesh.
