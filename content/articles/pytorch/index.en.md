@@ -11,3 +11,7 @@ images = ["articles/pytorch/banner.png"]
 Having explored conventional methods for feature extraction from satellite imagery as part of recent academic studies I am currently investing my time into how to utilise machine learning and particularly Convolutional Neural Networks (CNNs) to classify geographic features.
 
 I am particularly interested in leveraging PyTorch for this purpose.
+
+## Status
+I am in the progress of learning PyTorch - Please check back soon
+
