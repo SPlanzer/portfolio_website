@@ -1,6 +1,6 @@
 +++
 title = "Predicting nearshore bathymetry using Sentinel–2 imagery"
-summary = "An investigation into the effectiveness of Satellite Derived Bathymetry (SDB)"
+summary = "An investigation into the effectiveness of Satellite Derived Bathymetry (SDB). This was the final project of my recent Remote Sensing studies."
 
 date = "2020-04-14T21:34:30+02:00"
 tags = ["Remote Sensing", "SDB", "Satellite Derived Bathymetry"]

@@ -11,16 +11,16 @@ images = ["articles/lidar-chm/banner.png"]
 
 
 ## Intro
-To explore extracting vegetation height from LiDAR data, a swath from the Land-use and Carbon Analysis System (LUCAS) LiDAR data was acquired from the Ministry for the Environment (MFE). This data is ideal for such calculations as its collected in heavily forested areas and is at resolution high enough to analyse individual trees.
+To explore extracting vegetation height from LiDAR data, a swath from the Land-use and Carbon Analysis System (LUCAS) LiDAR data was acquired from the Ministry for the Environment (MFE). This data is ideal for such calculations as its collected in heavily forested areas and is at a resolution high enough to analyse individual trees.
 
 The computation of vegetation height using LiDAR is fairly straightforward.
 
-1. A Digital Surface Model (DSM) must be extracted from the LiDAR point data. This is a model representing features (i.e. vegetation) elevated above the “Bare Earth”.
+1. A Digital Surface Model (DSM) must be extracted from the LiDAR point data. This is a model representing features elevated above the “Bare Earth”.
 2. A Digital Terrain Model (DTM) must be extracted from the LiDAR point data. This is a Bare Earth model with surface features not included.
 3. What is commonly known as a Canopy Height Model (CHM) is then produced by subtracting the DTM from the DSM.
 
 ## Extracting the DSM and DTM from LiDAR
-[PDAL](https://pdal.io/) (Point Data Abstraction Library) is a very powerful tool for processing LiDAR point cloud data and very adept at extracting surface models based on point classification and filtering algorithms.
+The [PDAL](https://pdal.io/) (Point Data Abstraction Library) is a very powerful tool for processing LiDAR point cloud data and very adept at extracting surface models based on point classification and filtering algorithms.
 
 PDAL allows the composition of operations on point clouds into 'pipelines'. These pipelines are written in the JSON format and define each step for the processing of the data in a sequence. This leads itself to highly customisable point cloud processing, that is repeatable and runs many steps in one execution of the program.
 
@@ -72,7 +72,7 @@ The writer defines the parameters for calculating the output and the output data
 
 Of use in this case are the below parameters:
 
-* resolution: Length of raster cell edges in X/Y units.
+* Resolution: Length of raster cell edges in X/Y units.
 * Radius: The value where each point that falls within a given radius of each raster cell center contributes to the raster cells value.
 
 #### DTM PDAL Pipelne
@@ -130,17 +130,18 @@ The PDAL parameters important to extracting the LiDAR ground returns that repres
 In this case we want to ignore any LiDAR classification values that may have already been calculated so that we can derive our own.
 In this example we apply a value of 0 (not classified) to the Classification dimension for every point.
 
-##### Extended Local Minimum (ELM)
-The Extended Local Minimum (ELM) algorithm identifies low noise points that can adversely affect ground segmentation algorithms. Noise points are classified with a value of 7.
+##### Filter Low Point Outliers
+The Extended Local Minimum (ELM) algorithm identifies low points that can adversely affect ground segmentation algorithms. These points are marked as noise with the default ELM noise value of 7 as per the [las specification](http://www.asprs.org/a/society/committees/standards/LAS_1_4_r13.pdf).
+
 
 ##### Outliers
-Used to identify any outlier points that may affect ground segmentation. Outliers can be a result of signal noise but also phenomena such as birds captured in a survey. Outliers are also classified with a value of 7.
+Used to identify any outlier points that may affect ground segmentation. The filter aims to indicate any points that are statistical outliers due to LiDAR signal noise. Like the outliers identified with ELM these are also classified with a value of 7.
 
 ##### Ground Classification
-The `filters.smrf` classifies ground points based on the well accepted Simple Morphological Filter (SMRF) approach. The points classified as noise (value 7) are filter out of the final result. Following the LAS format, ground points are given the classification value of 2.
+The `filters.smrf` classifies ground points based on the well accepted Simple Morphological Filter (SMRF) approach. The points classified as noise (value 7) are filtered out of the final result. Following the LAS format, those points identified as ground are given the classification value of 2.
 
-##### Ground Return Extraction
-Having classified ground points by giving these points the classification value of 2, these points can now be filtered out to create a model solely representing bare ground.
+##### Ground Return Filter
+Having classified ground points by giving such points the classification value of 2, the points are filtered out to create a model solely representing bare ground.
 
 ## Running the pipelines
 
@@ -150,7 +151,7 @@ Once the steps are defined in the pipeline, it is as simple as running the below
 
 
 ## Calculating the CHM
-Once we have the two models, GDAL can be used to run a raster calculator to output the CHM.
+Once the DSM and DTM models have are computed, GDAL can be used to run a raster calculator to output the CHM.
 
 `gdal_calc.py -A dtm.tif -B dsm.tif --calc="B-A" --outfile chm.tif`
 
@@ -167,7 +168,6 @@ import os
 import gdal, osr
 import matplotlib.pyplot as plt
 import sys
-from scipy import ndimage as ndi
 
 
 def plot_band_array(
@@ -216,7 +216,7 @@ image_extent = (xMin, xMax, yMin, yMax)
 plt.figure(1)
 chm_array = chm_raster.ReadAsArray(0, 0, cols_chm, rows_chm).astype(np.float)
 
-# PLot the CHM figure
+# Plot the CHM figure
 plot_band_array(
     chm_array,
     image_extent,

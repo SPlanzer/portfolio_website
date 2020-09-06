@@ -13,7 +13,7 @@ This is an investigation into using Meshroom for building a Digital Surface Mode
 
 
 ## Meshroom
-Meshroom is an opensource photogrammetry project. The Meshroom software uses Photogrammetry and Structure From Motion (SFM) principles to build 3D models. Very simply put this is accomplish by the software finding common clusters of pixels known as "features" in multiple overlapping images. The software then uses these common clusters and the image metadata to calculate the position and angle of the camera relative to the captured image. With this information 3D points are triangulated to build a, point cloud.
+Meshroom is an opensource photogrammetry project. The Meshroom software uses Photogrammetry and Structure From Motion (SFM) principles to build 3D models. Very simply put this is accomplish by the software finding common clusters of pixels known as "features" in multiple overlapping images. The software then uses these common clusters and the image metadata to calculate the position and angle of the camera relative to the captured image. With this information 3D points are triangulated to build a point cloud.
 
 
 ## Capturing the images
@@ -22,7 +22,7 @@ For this project a DJI Phanton3 drone was deployed.
 When taking pictures for photogrammetry there are several factors that must be considered to ensure a good model is produced:
 
 * All terrain in the survey area must be captured in at least two images and each image should overlap the succeeding image by 60-80%.
-* Moving objects such as people or objects that may be picked up and moved during the survey must be avoid as this will result in images not being matched.
+* Moving objects such as people or objects that may be picked up and moved during the survey must be avoided as this will result in images not being matched.
 * Avoid shadows as they reduce the information captured by the camera. This is best done by collecting imagery on a lightly overcast day.
 * Avoid harsh light. The day the imagery was flown for this project much of the terrain was wet. This meant even with the diffused light provided by the cloud cover much of the terrain gave of glare that reduces the information the camera can capture due to over exposure.
 
@@ -102,7 +102,7 @@ MeshroomRun = MeshroomRoot+"/Meshroom_photogrammetry"
 
 Meshroom generates the below outputs:
 
-* 3d point cloud
+* 3D point cloud
 * The 'Mesh'. This is a tetrahedralization of the model
 * The 'texture' that sees the original photos sliced so that the can be draped over the tetrahedral mesh.
 
@@ -117,7 +117,7 @@ By using the camera metadata, specifically the pixel size being a key element in
 
 {{< imgScale "quarter.png" "The entrance 'bowled quarter'. Note that decimeter detail can be seen." "1000x" >}}
 
-{{< imgScale "curb.png" "'Curbed Pyramid' Note here artifacts from shadows can be seen thus the need to capture imagery on days with diffused light" "1000x" >}}
+{{< imgScale "curb.png" "'Curbed Pyramid' Note the artifacts from shadows that can be seen and thus the need to capture imagery on days with diffused light" "1000x" >}}
 
 # Next Steps
 The next step for this project is to capture the remainder of the park when optimal lighting conditions allow.
