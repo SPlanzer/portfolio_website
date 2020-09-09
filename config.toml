@@ -2,6 +2,7 @@ baseURL = "https://simonplanzer.com/"
 languageCode = "en-us"
 title = "Simon Planzer"
 theme = "good-bones"
+googleAnalytics = "UA-177508630-1"
 
 [params]
     # Short subtitle/tagline. This is displayed in the header.
