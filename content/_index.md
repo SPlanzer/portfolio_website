@@ -16,6 +16,3 @@ Over "lockdown" I set myself the goal to learn to build and deploy a website for
 
 
 Currently my interests are in extracting information from imagery and LiDAR. In the articles of this website I will be outlining the techniques I am learning to do just that.
-
-If you would like to discuss the content of this website please get in touch at simon.planzer@gmail.com
-
